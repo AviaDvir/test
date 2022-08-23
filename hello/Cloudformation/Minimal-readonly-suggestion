@@ -45,45 +45,6 @@
            },
            "Type": "AWS::IAM::Role"
        },
-       "LumigoIntegrationPolicies": {
-           "Type": "AWS::IAM::Policy",
-           "Properties": {
-               "PolicyName": "LumigoIntegration",
-               "PolicyDocument": {
-                   "Statement": [
-                       {
-                           "Effect": "Allow",
-                           "Action": [
-                               "lambda:UpdateFunctionConfiguration"
-                           ],
-                           "Resource": "*"
-                       },
-                       {
-                           "Effect": "Allow",
-                           "Action": [
-                               "logs:PutSubscriptionFilter",
-                               "logs:DeleteSubscriptionFilter",
-                               "logs:DescribeSubscriptionFilters"
-                           ],
-                           "Resource": "*"
-                       },
-                       {
-                           "Effect": "Allow",
-                           "Action": [
-                               "cloudwatch:PutMetricAlarm",
-                               "cloudwatch:DeleteAlarm"
-                           ],
-                           "Resource": "arn:aws:cloudwatch:*:*:alarm:*"
-                       }
-                   ]
-               },
-               "Roles": [
-                   {
-                       "Ref": "LumigoIntegrationRole"
-                   }
-               ]
-           }
-       },
        "LumigoReporter": {
            "Type": "AWS::CloudFormation::CustomResource",
            "Properties": {
